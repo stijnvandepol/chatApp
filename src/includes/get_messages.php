@@ -1,6 +1,7 @@
 <?php
+include 'dbconnection.php';
 // Maak verbinding met de database
-$mysqli = new mysqli("db", "user", "Rookworst31!", "database");
+$mysqli = new mysqli("$hostname", "$username", "$password", "$database");
 
 // Controleer op fouten bij het maken van verbinding
 if ($mysqli->connect_errno) {

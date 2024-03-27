@@ -70,14 +70,30 @@
 
             const username = getUsername(); // Haal de gebruikersnaam op uit de sessie
 
-            fetch('includes/send_message.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ message, username }), // Stuur de gebruikersnaam mee met het bericht
-            })
-            .then(() => getMessages());
+            // Controleer of het bericht niet leeg is voordat het wordt verzonden
+            if (message.trim() !== '') {
+                // Verzend het bericht naar de server
+                fetch('includes/send_message.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message, username }), // Stuur de gebruikersnaam mee met het bericht
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Geef een bericht weer in de console als het bericht succesvol is verzonden
+                        console.log('Message sent successfully');
+                        // Haal de berichten opnieuw op om de nieuw toegevoegde bericht weer te geven
+                        getMessages();
+                    } else {
+                        throw new Error('Failed to send message');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
         }
 
         getMessages();
