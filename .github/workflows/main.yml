@@ -29,6 +29,6 @@ jobs:
           registry-login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
           registry-username: ${{ secrets.REGISTRY_USERNAME }}
           registry-password: ${{ secrets.REGISTRY_PASSWORD }}
-          name: gatekeeper-api
+          name: getting-started
           location: 'west europe'
-          ports: '80'
+          ports: '3000'
