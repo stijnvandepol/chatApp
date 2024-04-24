@@ -3,7 +3,7 @@ version: '3.8'
 services:
   web:
     build:
-      context: .
+      context: ./app
       dockerfile: Dockerfile
     ports:
       - "80:80"
@@ -13,6 +13,9 @@ services:
       - my-network 
 
   db:
+    build:
+      context: ./db
+      dockerfile: Dockerfile
     image: mysql:latest
     restart: always
     environment:
