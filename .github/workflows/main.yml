@@ -31,4 +31,4 @@ jobs:
           registry-password: ${{ secrets.REGISTRY_PASSWORD }}
           name: gatekeeper-api
           location: 'west europe'
-          ports: '80'
+          ports: '3000'
