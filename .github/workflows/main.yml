@@ -32,4 +32,4 @@ jobs:
        registry-password: ${{ secrets.REGISTRY_PASSWORD }}
        name: getting-started-github
        location: 'west europe'
-       ports: '3000'
+       ports: '80'
